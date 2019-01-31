@@ -1,0 +1,68 @@
+﻿@model List<MVC_First_Task.Models.Counter>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <img src="~/resources/images/logo.gif" width="200" />
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12">
+
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <p style="font-weight:bold ; font-size:1.25vw; margin-top : 5%;">Branches Configurations</p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12">
+
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <p style="font-weight:bold ; font-size:1.25vw; margin-top : 5%;">Counter</p>
+    </div>
+</div>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Number)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { counterId = item.CounterID , branchId = item.BranchID }) |
+            @Html.ActionLink("Details", "Details", new { counterId = item.CounterID, branchId = item.BranchID }) |
+            @Html.ActionLink("Delete", "Delete", new { counterId = item.CounterID, branchId = item.BranchID })
+        </td>
+    </tr>
+    }
+
+</table>
+
+<br />
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+        @Html.ActionLink("Add", "Create")
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+        @Html.ActionLink("Back To Branches", "Index", "Branch")
+    </div>
+</div>
